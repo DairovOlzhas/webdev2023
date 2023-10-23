@@ -6,7 +6,6 @@ const ChatApp = () => {
   return (
     <div className="chat-app">
       <ChatWindow />
-      <UserInput />
     </div>
   );
 };

@@ -24,7 +24,8 @@ const ChatWindow = () => {
     if (userMessage.trim() !== '') {
       const botResponse = getRandomBotResponseMemoized();
       addBotMessage(botResponse);
-      setUserMessage('');
+      addUserMessage(); // Add the user message to the chat
+      setUserMessage(''); // Clear the user input
     }
   };
 
@@ -55,15 +56,15 @@ const ChatWindow = () => {
     <div className="chat-window">
       {messages.map((message, index) => (
         <BotResponse key={index} text={message.text} />
-      ))}
+      )}
       <div className="user-input">
         <input
           type="text"
           placeholder="Type your message..."
           value={userMessage}
-          onChange={handleUserInputChange} // Attach the event handler to input change
+          onChange={handleUserInputChange}
         />
-        <button onClick={handleSendMessage}>Send</button> {/* Attach the event handler to button click */}
+        <button onClick={handleSendMessage}>Send</button>
       </div>
     </div>
   );
